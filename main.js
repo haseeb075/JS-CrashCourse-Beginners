@@ -293,9 +293,108 @@
 // console.log( numberAdder(squardNumber(4) , 10 ));
 
 // Example 7
-let myString = "i am a stringiii"
+// let myString = "i am a stringiii"
 
-function addHello(stringi){
- return "Hello" + stringi
+// function addHello(stringi){
+//  return "Hello" + stringi
+// }
+// console.log(addHello(myString));
+
+
+// Example 8 Functions with objects
+// const myInfo = {name: "Chris" , age:30}
+// function ageChangeTo100(newage){
+//     myInfo.age = 100
+// }
+// console.log(myInfo);
+// ageChangeTo100()
+// console.log(myInfo);
+
+// well const shouldnt have to changes the value but it does. The reason is
+// Answer: You can't create a const array because arrays are objects and can only be created at runtime and const entities are resolved at compile time.
+// Answer: If you want to make an array constant, you can precede its type with the word const. When you do so, the array name is constant, and the elements inside the array are also constant. Thus you cannot have a constant array with nonconstant elements, nor can you have a nonconstant array with constant elements.
+
+// Example 9 with arrays
+// const myNumbers = [1,2,3,4,5,6]
+
+// function addNumber(myNumbers){
+//     myNumbers.push(6)
+// }
+// addNumber(myNumbers)
+// console.log(myNumbers);
+
+// Nested Functions => functions can be nested inside another functions thats why they are called closures
+// closures example 1
+function squareAndMultilpy(num1, num2) {
+    // let testlet = "I am a test";
+    // private function because I cannot access this function outside of this parent function & gives me error squarer is not defined
+    function squarer(x) {
+        // var testlet = "I am a test";
+
+        // console.log(testlet);
+        return x * x;
+    }
+    // console.log(testlet);
+    function multiplierby10(y) {
+        return y * 10;
+    }
+    return squarer(num1) * multiplierby10(num2);
 }
-console.log(addHello(myString));
+
+console.log(squareAndMultilpy(6, 85));
+
+// closures example 2
+// function personFormatter(firstName, lastName, age){
+//     function formatNames(arg1,arg2){
+//         return arg1 + "" + arg2;
+//     }
+//     const formattednames = formatNames(firstName, lastName);
+//     return formattednames;
+// }
+
+// console.log(personFormatter("Chris", "Jones", 20))
+
+// closures example 3
+// function personFormatter(firstName, lastName, age){
+//     function formatNames(arg1,arg2){
+//         return arg1 + "" + arg2;
+//     }
+
+//     function dataFormatter(fullName, num){
+//         const formattedData = {
+//             name: fullName,
+//             age: num
+//         }
+//         return formattedData
+//     }
+
+//     const formattednames = formatNames(firstName, lastName);
+//     return dataFormatter(formattednames, age);
+// }
+// console.log(personFormatter("Chris", "Jones", 20))
+
+// closures example 4
+// concatenates strings into one string
+// function formatNames(arg1, arg2) {
+//     return arg1 + "" + arg2;
+// }
+
+// formates data into an object, with name and age
+// function dataFormatter(fullName, num) {
+//     const formattedData = {
+//         name: fullName,
+//         age: num
+//     }
+//     return formattedData
+// }
+
+// formnats data into object ny invoking other functions
+// function personFormatter(firstName, lastName, age) {
+//     const formattednames = formatNames(firstName, lastName);
+//     const formattedData = dataFormatter(formattednames, age);
+//     return formattedData
+// }
+// console.log(personFormatter("Chris", "Jones", 20))
+
+
+
